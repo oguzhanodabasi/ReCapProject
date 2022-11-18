@@ -25,7 +25,7 @@ namespace ConsoleUI // Note: actual namespace depends on the project name.
         private static void CarDetails()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            foreach (var car in carManager.GetCarDetails())
+            foreach (var car in carManager.GetCarDetails().Data)
             {
                 Console.WriteLine("{0} / {1} / {2} / {3}", car.CarName, car.BrandName, car.ColorName, car.DailyPrice);
             }
@@ -34,13 +34,13 @@ namespace ConsoleUI // Note: actual namespace depends on the project name.
         private static void GetColor()
         {
             ColorManager colorManager = new ColorManager(new EfColorDal());
-            Console.WriteLine(colorManager.GetById(1).ColorName);
+            Console.WriteLine(colorManager.GetById(1).Data.ColorName);
         }
 
         private static void GetAllColors()
         {
             ColorManager colorManager = new ColorManager(new EfColorDal());
-            foreach (var color in colorManager.GetAll())
+            foreach (var color in colorManager.GetAll().Data)
             {
                 Console.WriteLine(color.ColorName);
             }
@@ -49,13 +49,13 @@ namespace ConsoleUI // Note: actual namespace depends on the project name.
         private static void GetBrandById()
         {
             BrandManager brandManager = new BrandManager(new EfBrandDal());
-            Console.WriteLine(brandManager.GetById(1).BrandName);
+            Console.WriteLine(brandManager.GetById(1).Data.BrandName);
         }
 
         private static void GetAllBrands()
         {
             BrandManager brandManager = new BrandManager(new EfBrandDal());
-            foreach (var brand in brandManager.GetAll())
+            foreach (var brand in brandManager.GetAll().Data)
             {
                 Console.WriteLine(brand.BrandName);
             }
@@ -64,7 +64,7 @@ namespace ConsoleUI // Note: actual namespace depends on the project name.
         private static void GetCarsByBrandId()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            foreach (var car in carManager.GetCarsByBrandId(1))
+            foreach (var car in carManager.GetCarsByBrandId(1).Data)
             {
                 Console.WriteLine(car.CarName);
             }
@@ -73,7 +73,7 @@ namespace ConsoleUI // Note: actual namespace depends on the project name.
         private static void GetAllCars()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            foreach (var car in carManager.GetAll())
+            foreach (var car in carManager.GetAll().Data)
             {
                 Console.WriteLine(car.CarName);
             }
